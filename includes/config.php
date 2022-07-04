@@ -6,7 +6,7 @@ session_start();
 define('DBHOST','localhost');
 define('DBUSER','username');
 define('DBPASS','password');
-define('DBNAME','database name');
+define('DBNAME','cst323');
 
 $db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
