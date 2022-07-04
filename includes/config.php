@@ -4,11 +4,11 @@ session_start();
 
 //database credentials
 define('DBHOST','localhost');
-define('DBUSER','username');
-define('DBPASS','password');
+define('DBUSER','root');
+define('DBPASS','');
 define('DBNAME','cst323');
 
-$db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
+$db = new PDO("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSER, DBPASS);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
