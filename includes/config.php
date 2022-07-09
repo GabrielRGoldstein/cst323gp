@@ -3,9 +3,9 @@ ob_start();
 session_start();
 
 //database credentials
-define('DBHOST','localhost');
-define('DBUSER','root');
-define('DBPASS','');
+define('DBHOST','dfkpczjgmpvkugnb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com');
+define('DBUSER','v09wqycbhe3d0xps');
+define('DBPASS','wv8j47xqzlivwh1a');
 define('DBNAME','cst323');
 
 $db = new PDO("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSER, DBPASS);
