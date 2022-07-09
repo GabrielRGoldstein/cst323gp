@@ -6,7 +6,7 @@ session_start();
 define('DBHOST','dfkpczjgmpvkugnb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com');
 define('DBUSER','v09wqycbhe3d0xps');
 define('DBPASS','wv8j47xqzlivwh1a');
-define('DBNAME','cst323');
+define('DBNAME','guzhxlth97kcr38b');
 
 $db = new PDO("mysql:host=".DBHOST.";dbname=".DBNAME, DBUSER, DBPASS);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
