@@ -36,7 +36,7 @@ if( $user->is_logged_in() ){$logger->info('User is already logged in, redirectin
 		$password = trim($_POST['password']);
 		
 		if($user->login($username,$password)){ 
-			$logger->info($username + ' has successfully logged in, redirecting to index.php');
+			$logger->info( $username, ' has successfully logged in, redirecting to index.php');
 			//logged in return to index page
 			header('Location: index.php');
 			exit;
