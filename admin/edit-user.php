@@ -1,8 +1,18 @@
 <?php //include config
 require_once('../includes/config.php');
+//include autoload.php
+require_once('../vendor/autoload.php');
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$logger = new Logger('edit-user.php');
+$logger->pushHandler(new StreamHandler('php://stdout', Logger::DEBUG));
+$logger->info('Admin edit-user Logger has been initialized.');
+
 
 //if not logged in redirect to login page
-if(!$user->is_logged_in()){ header('Location: login.php'); }
+if(!$user->is_logged_in()){$logger->info('User is not logged in, redirecting to login.php');
+	 header('Location: login.php'); }
 ?>
 <!doctype html>
 <html lang="en">
@@ -85,7 +95,8 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 					));
 
 				}
-				
+				//user has been updated log.
+				$logger->info('user has been updated, redirecting to users.php');
 
 				//redirect to index page
 				header('Location: users.php?action=updated');
