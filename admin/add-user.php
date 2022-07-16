@@ -1,6 +1,13 @@
 <?php //include config
 require_once('../includes/config.php');
+//include autoload.php
+require_once('../vendor/autoload.php');
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
+$logger = new Logger('add-user.php');
+$logger->pushHandler(new StreamHandler('php://stdout', Logger::DEBUG));
+$logger->info('Admin add-user Logger has been initialized.');
 //if not logged in redirect to login page
 if(!$user->is_logged_in()){ header('Location: login.php'); }
 ?>
@@ -63,7 +70,8 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 					':password' => $hashedpassword,
 					':email' => $email
 				));
-
+				//log that a user has been added.
+				$logger->info("User $username has been added.");
 				//redirect to index page
 				header('Location: users.php?action=added');
 				exit;
