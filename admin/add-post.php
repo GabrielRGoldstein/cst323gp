@@ -77,7 +77,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 					':postDate' => date('Y-m-d H:i:s')
 				));
 				//log if posted.
-				$logger->info("$postTitle has been added by $user");
+				$logger->info("$postTitle has been added by $user->username");
 				//redirect to index page
 				header('Location: index.php?action=added');
 				exit;
