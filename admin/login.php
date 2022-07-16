@@ -12,7 +12,7 @@ $logger->info('Admin Login Logger has been initialized.');
 
 
 //check if already logged in
-if( $user->is_logged_in() ){$logger->info('User is already logged in, redirecting to welcome.php'); 
+if( $user->is_logged_in() ){$logger->info("$username is already logged in, redirecting to index.php"); 
 	header('Location: index.php'); } 
 ?>
 <!doctype html>
@@ -36,7 +36,7 @@ if( $user->is_logged_in() ){$logger->info('User is already logged in, redirectin
 		$password = trim($_POST['password']);
 		
 		if($user->login($username,$password)){ 
-			$logger->info( $username, ' has successfully logged in, redirecting to index.php');
+			$logger->info( "$username has successfully logged in, redirecting to index.php");
 			//logged in return to index page
 			header('Location: index.php');
 			exit;

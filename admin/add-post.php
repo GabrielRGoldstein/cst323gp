@@ -1,5 +1,13 @@
 <?php //include config
 require_once('../includes/config.php');
+//include autoload.php
+require_once('../vendor/autoload.php');
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$logger = new Logger('add-post.php');
+$logger->pushHandler(new StreamHandler('php://stdout', Logger::DEBUG));
+$logger->info('Admin add-post Logger has been initialized.');
 
 //if not logged in redirect to login page
 if(!$user->is_logged_in()){ header('Location: login.php'); }
@@ -68,7 +76,8 @@ if(!$user->is_logged_in()){ header('Location: login.php'); }
 					':postCont' => $postCont,
 					':postDate' => date('Y-m-d H:i:s')
 				));
-
+				//log if posted.
+				$logger->info("$postTitle has been added by $username");
 				//redirect to index page
 				header('Location: index.php?action=added');
 				exit;
