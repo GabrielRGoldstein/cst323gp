@@ -1,10 +1,19 @@
 <?php
 //include config
 require_once('../includes/config.php');
+//load logger.
+require_once('vendor/autoload.php');
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$logger = new Logger('login.php');
+$logger->pushHandler(new StreamHandler('php://stdout', Logger::DEBUG));
+$logger->info('Admin Login Logger has been initialized.');
 
 
 //check if already logged in
-if( $user->is_logged_in() ){ header('Location: index.php'); } 
+if( $user->is_logged_in() ){$logger->info('User is already logged in, redirecting to welcome.php'); 
+	header('Location: index.php'); } 
 ?>
 <!doctype html>
 <html lang="en">
