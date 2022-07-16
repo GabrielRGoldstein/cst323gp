@@ -2,7 +2,7 @@
 //include config
 require_once('../includes/config.php');
 //load logger.
-require_once('vendor/autoload.php');
+require_once('../vendor/autoload.php');
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
